@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SavingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return view('index');
 });
+Route::get('/users', function() {
+    return view('users.index');
+});
+
+Route::get('/savings', [SavingController::class, 'index'])->name('savings.index');
+Route::get('/savings/create', [SavingController::class, 'create'])->name('savings.create');
+Route::post('/savings', [SavingController::class, 'store'])->name('savings.store');
