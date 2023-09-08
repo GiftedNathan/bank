@@ -14,7 +14,6 @@ class Savings extends Model
         'user_id',
         'name',
         'amount',
-        'total',
         'month',
     ];
 
